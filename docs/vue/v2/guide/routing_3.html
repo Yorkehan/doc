@@ -1,0 +1,1116 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <title>Routing — Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="routing_3.html">
+    <link rel="alternate" hreflang="zh" href="routing.html">
+    <link rel="alternate" hreflang="ja" href="routing_2.html">
+    <link rel="alternate" hreflang="ru" href="routing_4.html">
+    <link rel="alternate" hreflang="ko" href="routing_7.html">
+    <link rel="alternate" hreflang="pt-BR" href="routing_5.html">
+    <link rel="alternate" hreflang="fr" href="routing_6.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Routing — Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Routing — Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://vuejs.org/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://vuejs.org/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://vuejs.org/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://vuejs.org/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://vuejs.org/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://vuejs.org/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://vuejs.org/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://vuejs.org/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://vuejs.org/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://vuejs.org/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://vuejs.org/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://vuejs.org/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://vuejs.org/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="https://vuejs.org/images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="https://vuejs.org/manifest.json">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600%7CRoboto%20Mono" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:500&amp;text=Vue.js" rel="stylesheet" type="text/css">
+
+    <link href="" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="https://vuejs.org/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="../../js/vue_2.js"></script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','../../js/analytics.js','ga');
+
+      ga('create', 'UA-46852172-1', 'vuejs.org');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- vimeo analytics -->
+    <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar">
+      <a class="menu-button"></a>
+      <a class="logo" href="https://vuejs.org/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="https://vuejs.org/">
+    <img src="https://vuejs.org/images/logo.png" alt="vue logo">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Learn</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vuejs.org/v2/guide/" class="nav-link current">Guide</a></li>
+      <li><a href="../api/api_2.html" class="nav-link">API</a></li>
+      <li><a href="https://vuejs.org/v2/style-guide/" class="nav-link">Style Guide</a></li>
+      <li><a href="https://vuejs.org/v2/examples/" class="nav-link">Examples</a></li>
+      <li><a href="https://vuejs.org/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Ecosystem</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Help</h4></li>
+    <li><ul>
+      <li><a href="../../forum_vuejs_default.html" class="nav-link" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="../../meetups/meetups.html" class="nav-link" target="_blank">Meetups</a></li>
+    </ul></li>
+    <li><h4>Tooling</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="../../cli_vuejs_default.html" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Core Libraries</h4></li>
+    <li><ul>
+      <li><a href="../../router_vuejs_default.html" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>News</h4></li>
+    <li><ul>
+      <li><a href="../../news_vuejs_default.html" class="nav-link" target="_blank">Weekly News</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="../../events_vuejs_default.html" class="nav-link" target="_blank">Events</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Jobs</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">DEV Community</a></li>
+    </ul></li>
+    <li><h4>Resource Lists</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Official Repos</a></li>
+      <li><a href="../../curated_vuejs_default.html" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team_2.html" class="nav-link team">Team</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="https://vuejs.org/support-vuejs/" class="nav-link">Support Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">One-time Donations</a></li>
+      <li><a href="https://vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">Recurring Pledges</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T-Shirt Shop</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="routing.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="routing_2.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="routing_4.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="routing_7.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="routing_5.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="routing_6.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="routing_8.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Learn</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vuejs.org/v2/guide/" class="nav-link current">Guide</a></li>
+      <li><a href="../api/api_2.html" class="nav-link">API</a></li>
+      <li><a href="https://vuejs.org/v2/style-guide/" class="nav-link">Style Guide</a></li>
+      <li><a href="https://vuejs.org/v2/examples/" class="nav-link">Examples</a></li>
+      <li><a href="https://vuejs.org/v2/cookbook/" class="nav-link">Cookbook</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Ecosystem</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Help</h4></li>
+    <li><ul>
+      <li><a href="../../forum_vuejs_default.html" class="nav-link" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Chat</a></li>
+      <li><a href="../../meetups/meetups.html" class="nav-link" target="_blank">Meetups</a></li>
+    </ul></li>
+    <li><h4>Tooling</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="../../cli_vuejs_default.html" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Core Libraries</h4></li>
+    <li><ul>
+      <li><a href="../../router_vuejs_default.html" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>News</h4></li>
+    <li><ul>
+      <li><a href="../../news_vuejs_default.html" class="nav-link" target="_blank">Weekly News</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="../../events_vuejs_default.html" class="nav-link" target="_blank">Events</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Blog</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">Jobs</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">DEV Community</a></li>
+    </ul></li>
+    <li><h4>Resource Lists</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Official Repos</a></li>
+      <li><a href="../../curated_vuejs_default.html" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team_2.html" class="nav-link team">Team</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="https://vuejs.org/support-vuejs/" class="nav-link">Support Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">One-time Donations</a></li>
+      <li><a href="https://vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">Recurring Pledges</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">T-Shirt Shop</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="routing.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="routing_2.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="routing_4.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="routing_7.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="routing_5.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="routing_6.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="routing_8.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Special Sponsor</span>
+    <div>
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/stdlib.png" alt="">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Platinum Sponsors</span>
+    <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/modus.png" alt="Modus">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="https://vuejs.org/support-vuejs">
+    Become a Sponsor
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Guide
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>Essentials</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="installation_2.html" class="sidebar-link">Installation</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="index.html" class="sidebar-link">Introduction</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="instance_2.html" class="sidebar-link">The Vue Instance</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="syntax_2.html" class="sidebar-link">Template Syntax</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="computed_2.html" class="sidebar-link">Computed Properties and Watchers</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="class-and-style_3.html" class="sidebar-link">Class and Style Bindings</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="conditional_2.html" class="sidebar-link">Conditional Rendering</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="list_2.html" class="sidebar-link">List Rendering</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="events_2.html" class="sidebar-link">Event Handling</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="forms_2.html" class="sidebar-link">Form Input Bindings</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components_2.html" class="sidebar-link">Components Basics</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>Components In-Depth</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-registration_6.html" class="sidebar-link">Component Registration</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-props_2.html" class="sidebar-link">Props</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-custom-events_3.html" class="sidebar-link">Custom Events</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-slots_2.html" class="sidebar-link">Slots</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-dynamic-async_2.html" class="sidebar-link">Dynamic & Async Components</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-edge-cases_2.html" class="sidebar-link">Handling Edge Cases</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>Transitions & Animation</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="transitions_2.html" class="sidebar-link">Enter/Leave & List Transitions</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="transitioning-state_2.html" class="sidebar-link">State Transitions</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>Reusability & Composition</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="mixins_2.html" class="sidebar-link">Mixins</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="custom-directive_2.html" class="sidebar-link">Custom Directives</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="render-function_4.html" class="sidebar-link">Render Functions & JSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="plugins_2.html" class="sidebar-link">Plugins</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="filters_8.html" class="sidebar-link">Filters</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>Tooling</h3></li>
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="single-file-components_2.html" class="sidebar-link">Single File Components</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="unit-testing_2.html" class="sidebar-link">Unit Testing</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="typescript_6.html" class="sidebar-link">TypeScript Support</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="deployment_2.html" class="sidebar-link">Production Deployment</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>Scaling Up</h3></li>
+      
+      
+      
+      
+    
+    <li>
+      <a href="routing_3.html" class="sidebar-link current">Routing</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="state-management_3.html" class="sidebar-link">State Management</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="ssr_2.html" class="sidebar-link">Server-Side Rendering</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Internals</h3></li>
+      
+      
+      
+    
+    <li>
+      <a href="reactivity_2.html" class="sidebar-link">Reactivity in Depth</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Migrating</h3></li>
+      
+      
+    
+    <li>
+      <a href="migration_5.html" class="sidebar-link">Migration from Vue 1.x</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="migration-vue-router_2.html" class="sidebar-link">Migration from Vue Router 0.7.x</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="migration-vuex_2.html" class="sidebar-link">Migration from Vuex 0.6.x to 1.0</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>Meta</h3></li>
+      
+    
+    <li>
+      <a href="comparison_4.html" class="sidebar-link">Comparison with Other Frameworks</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="join_2.html" class="sidebar-link">Join the Vue.js Community!</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="team_2.html" class="sidebar-link">Meet the Team</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Platinum Sponsors</span>
+    <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/modus.png" alt="Modus">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="https://vuejs.org/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="https://vuejs.org/support-vuejs">
+    Become a Sponsor
+  </a>
+</div>
+
+
+
+<div class="content guide with-sidebar routing-guide">
+  
+    
+      <div id="ad">
+  <script async type="text/javascript" src="https://cdn.carbonads.com/carbon.js?serve=CKYIK2QU&amp;placement=vuejsorg" id="_carbonads_js">
+  </script>
+</div>
+
+    
+  
+  
+    <h1>Routing</h1>
+  
+  
+    <h2 id="Official-Router"><a href="routing_3.html#Official-Router" class="headerlink" title="Official Router"></a>Official Router</h2><p>For most Single Page Applications, it’s recommended to use the officially-supported <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">vue-router library</a>. For more details, see vue-router’s <a href="../../router_vuejs_default.html" target="_blank" rel="noopener">documentation</a>.</p>
+<h2 id="Simple-Routing-From-Scratch"><a href="routing_3.html#Simple-Routing-From-Scratch" class="headerlink" title="Simple Routing From Scratch"></a>Simple Routing From Scratch</h2><p>If you only need very simple routing and do not wish to involve a full-featured router library, you can do so by dynamically rendering a page-level component like this:</p>
+<pre><code class="hljs js"><span class="hljs-keyword">const</span> NotFound = &#123; <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;Page not found&lt;/p&gt;'</span> &#125;
+<span class="hljs-keyword">const</span> Home = &#123; <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;home page&lt;/p&gt;'</span> &#125;
+<span class="hljs-keyword">const</span> About = &#123; <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;p&gt;about page&lt;/p&gt;'</span> &#125;
+
+<span class="hljs-keyword">const</span> routes = &#123;
+  <span class="hljs-string">'/'</span>: Home,
+  <span class="hljs-string">'/about'</span>: About
+&#125;
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,
+  <span class="hljs-attr">data</span>: &#123;
+    <span class="hljs-attr">currentRoute</span>: <span class="hljs-built_in">window</span>.location.pathname
+  &#125;,
+  <span class="hljs-attr">computed</span>: &#123;
+    ViewComponent () &#123;
+      <span class="hljs-keyword">return</span> routes[<span class="hljs-keyword">this</span>.currentRoute] || NotFound
+    &#125;
+  &#125;,
+  render (h) &#123; <span class="hljs-keyword">return</span> h(<span class="hljs-keyword">this</span>.ViewComponent) &#125;
+&#125;)</code></pre>
+<p>Combined with the HTML5 History API, you can build a very basic but fully-functional client-side router. To see that in practice, check out <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example" target="_blank" rel="noopener">this example app</a>.</p>
+<h2 id="Integrating-3rd-Party-Routers"><a href="routing_3.html#Integrating-3rd-Party-Routers" class="headerlink" title="Integrating 3rd-Party Routers"></a>Integrating 3rd-Party Routers</h2><p>If there’s a 3rd-party router you prefer to use, such as <a href="https://github.com/visionmedia/page.js" target="_blank" rel="noopener">Page.js</a> or <a href="https://github.com/flatiron/director" target="_blank" rel="noopener">Director</a>, integration is <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/compare/master...pagejs" target="_blank" rel="noopener">similarly easy</a>. Here’s a <a href="https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs" target="_blank" rel="noopener">complete example</a> using Page.js.</p>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="deployment_2.html">Production Deployment</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="state-management_3.html">State Management</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="../../js/" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    Caught a mistake or want to contribute to the documentation?
+    <a href="https://github.com/vuejs/vuejs.org/blob/master/src/v2/guide/routing.md" target="_blank">
+      Edit this page on GitHub!
+    </a>
+  </div>
+</div>
+
+        
+      </div>
+      <script src="https://vuejs.org/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="https://vuejs.org/js/css.escape.js"></script>
+    <script src="https://vuejs.org/js/common.js"></script>
+
+    <!-- search -->
+    <link href="" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://vuejs.org/css/search.css">
+    <script src=""></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
+      indexName: 'vuejs',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src=""></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>

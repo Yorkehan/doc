@@ -1,0 +1,1134 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Однофайловые компоненты — Vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="alternate" hreflang="x-default" href="single-file-components_2.html">
+        <link rel="alternate" hreflang="zh" href="single-file-components.html">
+        <link rel="alternate" hreflang="ja" href="single-file-components_3.html">
+        <link rel="alternate" hreflang="ru" href="single-file-components_4.html">
+        <link rel="alternate" hreflang="ko" href="single-file-components_5.html">
+        <link rel="alternate" hreflang="pt-BR" href="single-file-components_6.html">
+        <link rel="alternate" hreflang="fr" href="single-file-components_8.html">
+
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Однофайловые компоненты — Vue.js">
+        <meta property="og:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta property="og:image" content="https://ru.vuejs.org//images/logo.png">
+
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Однофайловые компоненты — Vue.js">
+        <meta name="twitter:description" content="Vue.js — Прогрессивный JavaScript-фреймворк">
+        <meta name="twitter:image" content="https://ru.vuejs.org/images/logo.png">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="https://ru.vuejs.org/images/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://ru.vuejs.org/images/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://ru.vuejs.org/images/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://ru.vuejs.org/images/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://ru.vuejs.org/images/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://ru.vuejs.org/images/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://ru.vuejs.org/images/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://ru.vuejs.org/images/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://ru.vuejs.org/images/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="https://ru.vuejs.org/images/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://ru.vuejs.org/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://ru.vuejs.org/images/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://ru.vuejs.org/images/icons/favicon-16x16.png">
+        <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+        <link rel="icon" href="https://ru.vuejs.org/images/logo.png" type="image/png">
+
+        <meta name="msapplication-TileColor" content="#4fc08d">
+        <meta name="theme-color" content="#4fc08d">
+
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <link rel="manifest" href="https://ru.vuejs.org/manifest.json">
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Dosis:500&amp;text=Vue.js' rel='stylesheet' type='text/css'>
+
+        <link href="" rel="stylesheet" type="text/css">
+
+        <!-- main page styles -->
+        <link rel="stylesheet" href="https://ru.vuejs.org/css/page.css">
+
+        <!-- this needs to be loaded before guide's inline scripts -->
+        <script src="https://ru.vuejs.org/js/vue.js"></script>
+        <script>
+          Vue.config.productionTip = false
+          window.PAGE_TYPE = "guide"
+        </script>
+
+        <!-- ga -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','../../js/analytics.js','ga');
+          ga('create', 'UA-46852172-1', 'ru.vuejs.org');
+
+          ga('send', 'pageview');
+        </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+    </head>
+    <body class="docs">
+        <div id="mobile-bar" >
+            <a class="menu-button"></a>
+            <a class="logo" href="https://ru.vuejs.org/"></a>
+        </div>
+        <div id="header">
+  <a id="logo" href="https://ru.vuejs.org/">
+    <img src="https://ru.vuejs.org/images/logo.png" alt="Логотип Vue">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://ru.vuejs.org/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="https://ru.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="https://ru.vuejs.org/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="https://ru.vuejs.org/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="https://ru.vuejs.org/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="../../forum_vuejs_default.html" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+      <li><a href="../../meetups/meetups.html" class="nav-link" target="_blank">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="../../news_vuejs_default.html" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="../../events_vuejs_default.html" class="nav-link" target="_blank">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="../../curated_vuejs_default.html" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team_5.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="https://ru.vuejs.org/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://ru.vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="https://ru.vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="single-file-components_2.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="single-file-components.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="single-file-components_3.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="single-file-components_5.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="single-file-components_6.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="single-file-components_8.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="single-file-components_7.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+        
+            <div id="main" class="fix-sidebar">
+                
+                    
+    <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">Обучение</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://ru.vuejs.org/v2/guide/" class="nav-link current">Руководство</a></li>
+      <li><a href="https://ru.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="https://ru.vuejs.org/v2/style-guide/" class="nav-link">Рекомендации</a></li>
+      <li><a href="https://ru.vuejs.org/v2/examples/" class="nav-link">Примеры</a></li>
+      <li><a href="https://ru.vuejs.org/v2/cookbook/" class="nav-link">Книга рецептов</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">Экосистема</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>Помощь</h4></li>
+    <li><ul>
+      <li><a href="../../forum_vuejs_default.html" class="nav-link" target="_blank">Форум</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">Чат</a></li>
+      <li><a href="../../meetups/meetups.html" class="nav-link" target="_blank">Митапы</a></li>
+    </ul></li>
+    <li><h4>Инструментарий</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Инструменты разработчика</a></li>
+        <li><a href="https://cli.vuejs.org/ru/" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org/ru/" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>Официальные плагины</h4></li>
+    <li><ul>
+      <li><a href="https://router.vuejs.org/ru/" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/ru/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/ru/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>Новости</h4></li>
+    <li><ul>
+      <li><a href="../../news_vuejs_default.html" class="nav-link" target="_blank">Еженедельные новости</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">Roadmap</a></li>
+      <li><a href="../../events_vuejs_default.html" class="nav-link" target="_blank">События</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">Блог</a></li>
+      <li><a href="https://vuejsjob.com/?ref=vuejs" class="nav-link" target="_blank">Вакансии</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">Сообщество разработчиков</a></li>
+    </ul></li>
+    <li><h4>Списки ресурсов</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">Официальные репозитории</a></li>
+      <li><a href="../../curated_vuejs_default.html" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team_5.html" class="nav-link team">Команда</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="https://ru.vuejs.org/support-vuejs/" class="nav-link">Поддержать Vue</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://ru.vuejs.org/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="https://ru.vuejs.org/support-vuejs/#Recurring-Pledges" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="single-file-components_2.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="single-file-components.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="single-file-components_3.html" class="nav-link" target="_blank">日本語</a></li>
+    <li><a href="single-file-components_5.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="single-file-components_6.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="single-file-components_8.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="single-file-components_7.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>Специальный спонсор</span>
+    <div>
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/stdlib.png" alt="">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/modus.png" alt="Modus">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="https://ru.vuejs.org/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          Руководство
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+              <option value="011">0.11</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+    
+        
+        
+            
+                <li><h3>Основы</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="installation_4.html" class="sidebar-link">Установка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="index_5.html" class="sidebar-link">Введение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="instance_4.html" class="sidebar-link">Экземпляр Vue</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="syntax_4.html" class="sidebar-link">Синтаксис шаблонов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="computed_5.html" class="sidebar-link">Вычисляемые свойства и слежение</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="class-and-style_4.html" class="sidebar-link">Работа с классами и стилями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="conditional_5.html" class="sidebar-link">Условная отрисовка</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="list_4.html" class="sidebar-link">Отрисовка списков</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="events_4.html" class="sidebar-link">Обработка событий</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="forms_5.html" class="sidebar-link">Работа с формами</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components_3.html" class="sidebar-link">Основы компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+              <li><h3>Продвинутые компоненты</h3></li>
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components-registration_3.html" class="sidebar-link">Регистрация компонентов</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components-props_4.html" class="sidebar-link">Входные параметры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components-custom-events_7.html" class="sidebar-link">Пользовательские события</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components-slots_6.html" class="sidebar-link">Слоты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components-dynamic-async_3.html" class="sidebar-link">Динамические и асинхронные компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="components-edge-cases_4.html" class="sidebar-link">Обработка крайних случаев</a>
+        </li>
+    
+        
+        
+            
+            
+            
+                <li><h3>Переходы и анимации</h3></li>
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="transitions_4.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="transitioning-state_5.html" class="sidebar-link">Анимирование переходов между состояниями</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+                <li><h3>Переиспользование и композиция</h3></li>
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="mixins_3.html" class="sidebar-link">Примеси</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="custom-directive_3.html" class="sidebar-link">Пользовательские директивы</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="render-function_3.html" class="sidebar-link">Render-функции и JSX</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="plugins_7.html" class="sidebar-link">Плагины</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="filters_3.html" class="sidebar-link">Фильтры</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+                <li><h3>Инструментарий</h3></li>
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="single-file-components_4.html" class="sidebar-link current">Однофайловые компоненты</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="unit-testing_3.html" class="sidebar-link">Модульное тестирование</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="typescript_3.html" class="sidebar-link">Поддержка TypeScript</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="deployment_4.html" class="sidebar-link">Развёртывание на production</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+                <li><h3>Масштабирование</h3></li>
+            
+            
+            
+            
+        
+        <li>
+            <a href="routing_4.html" class="sidebar-link">Роутинг</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="state-management_8.html" class="sidebar-link">Управление состоянием приложения</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="ssr_4.html" class="sidebar-link">SSR. Отрисовка на стороне сервера</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Продвинутые темы</h3></li>
+            
+            
+            
+        
+        <li>
+            <a href="reactivity_3.html" class="sidebar-link">Подробно о реактивности</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Вопросы миграции</h3></li>
+            
+            
+        
+        <li>
+            <a href="migration_3.html" class="sidebar-link">Миграция с Vue 1.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="migration-vue-router_7.html" class="sidebar-link">Миграция с Vue Router 0.7.x</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="migration-vuex_4.html" class="sidebar-link">Миграция с Vuex 0.6.x на 1.0</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                <li><h3>Мета</h3></li>
+            
+        
+        <li>
+            <a href="comparison_3.html" class="sidebar-link">Сравнение с другими фреймворками</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="join_4.html" class="sidebar-link">Присоединяйтесь к сообществу Vue.js!</a>
+        </li>
+    
+        
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        <li>
+            <a href="team_5.html" class="sidebar-link">Познакомьтесь с командой</a>
+        </li>
+    
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>Платиновые спонсоры</span>
+    <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/modus.png" alt="Modus">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="https://ru.vuejs.org/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="https://ru.vuejs.org/support-vuejs">
+    Стать спонсором
+  </a>
+</div>
+
+
+
+<div class="content guide with-sidebar single-file-components-guide">
+    
+      
+        <div id="ad">
+  <script
+    async
+    type="text/javascript"
+    src="https://cdn.carbonads.com/carbon.js?serve=CKYIK2QU&amp;placement=vuejsorg"
+    id="_carbonads_js">
+  </script>
+</div>
+
+      
+    
+    
+      <h1>Однофайловые компоненты</h1>
+    
+    
+      <h2 id="Введение"><a href="single-file-components_4.html#Введение" class="headerlink" title="Введение"></a>Введение</h2><p>Во многих проектах, глобальные компоненты определяются посредством <code>Vue.component</code>, с последующим <code>new Vue({ el: &#39;#container&#39; })</code> для указания элемента-контейнера в теле каждой страницы.</p>
+<p>Для проектов малого и среднего размера, в которых JavaScript используется лишь для некоторых страниц, этот подход может прекрасно работать. В более же сложных проектах или в случаях, когда весь ваш фронтенд управляется JavaScript, явными становятся следующие недостатки:</p>
+<ul>
+<li><strong>Глобальное определение</strong> заставляет давать уникальное имя каждому компоненту</li>
+<li><strong>Строковым шаблонам</strong> не хватает подсветки синтаксиса. Кроме того, приходится использовать уродливые слэши для многострочного HTML.</li>
+<li><strong>Нет модульной поддержки CSS</strong> — в то время как HTML и JavaScript разбиваются на модули-компоненты, CSS оказывается за бортом.</li>
+<li><strong>Отсутствие шага сборки</strong> ограничивает нас только HTML и ES5 JavaScript, не позволяя использовать препроцессоры вроде Pug (бывший Jade) и Babel</li>
+</ul>
+<p>Все эти недостатки решаются <strong>однофайловыми компонентами</strong> с расширением <code>.vue</code>, использование которых позволяют такие инструменты как Webpack и Browserify.</p>
+<p>Вот простой пример файла, который мы назовём <code>Hello.vue</code>:</p>
+<p><a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank" rel="noopener noreferrer"><img src="https://ru.vuejs.org/images/vue-component.png" alt="Пример однофайловых компонентов" style="display: block; margin: 30px auto;"></a></p>
+<p>Мы получили:</p>
+<ul>
+<li><a href="https://github.com/vuejs/awesome-vue#source-code-editing" target="_blank" rel="noopener">полную подсветку синтаксиса</a></li>
+<li><a href="https://webpack.js.org/concepts/modules/#what-is-a-webpack-module" target="_blank" rel="noopener">модули CommonJS</a></li>
+<li><a href="https://vue-loader.vuejs.org/ru/features/scoped-css.html" target="_blank" rel="noopener">модульный CSS</a></li>
+</ul>
+<p>Как и обещалось, мы также можем использовать препроцессоры, такие как Pug, Babel (с модулями ES2015) и Stylus для создания более ясных и функциональных компонентов.</p>
+<p><a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="https://ru.vuejs.org/images/vue-component-with-preprocessors.png" alt="Пример однофайлового компонента с пре-процессорами" style="display: block; margin: 30px auto;"></a></p>
+<p>Перечисленные языки даны только для примера. С тем же успехом можно использовать Buble, TypeScript, SCSS, PostCSS — или любые другие пре- или постпроцессоры по вкусу. При использовании Webpack вместе с <code>vue-loader</code>, вы также получаете прекрасную поддержку CSS-модулей.</p>
+<h3 id="Что-насчёт-разделения-ответственности"><a href="single-file-components_4.html#Что-насчёт-разделения-ответственности" class="headerlink" title="Что насчёт разделения ответственности?"></a>Что насчёт разделения ответственности?</h3><p>Одна важная вещь, что следует отметить — <strong>разделение ответственности это не то же самое, что разделение на файлы по типу.</strong> В современной разработке UI мы обнаружили, что вместо разделения кодовой базы на три огромных слоя, что тесно переплетаются друг с другом, имеет больше смысла делить их на слабо связанные компоненты и компоновать уже их. Внутри компонента, его шаблон, логика и стили неразрывно связаны между собой, что позволяет сделать компонент более сплочённым и удобным в поддержке.</p>
+<p>Если вам не нравится идея однофайловых компонентов, вы также можете пользоваться возможностями горячей замены модулей и прекомпиляцией, выделив JavaScript и CSS в отдельные файлы:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- my-component.vue --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Это будет предварительно скомпилировано<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./my-component.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./my-component.css"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre>
+<h2 id="Начало-работы"><a href="single-file-components_4.html#Начало-работы" class="headerlink" title="Начало работы"></a>Начало работы</h2><h3 id="Песочница-с-примером"><a href="single-file-components_4.html#Песочница-с-примером" class="headerlink" title="Песочница с примером"></a>Песочница с примером</h3><p>Если вы хотите прямо сейчас поиграться с однофайловыми компонентами — начните с этого <a href="https://codesandbox.io/s/o29j95wx9" target="_blank" rel="noopener">простого todo приложения</a> на CodeSandbox.</p>
+<h3 id="Для-новичков-в-модульных-системах-сборки-JavaScript"><a href="single-file-components_4.html#Для-новичков-в-модульных-системах-сборки-JavaScript" class="headerlink" title="Для новичков в модульных системах сборки JavaScript"></a>Для новичков в модульных системах сборки JavaScript</h3><p>С <code>.vue</code>-компонентами, мы входим во вселенную продвинутых JavaScript-приложений. Это значит, что если вы этого ещё не сделали, нужно будет освоить некоторые дополнительные инструменты:</p>
+<ul>
+<li><p><strong>Node Package Manager (NPM)</strong>: Прочитайте <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="noopener">руководство по началу работы</a> до секции  <em>10: Uninstalling global packages</em>.</p>
+</li>
+<li><p><strong>Современный JavaScript стандартов ES2015/16</strong>: Прочитайте <a href="https://babeljs.io/docs/learn-es2015/" target="_blank" rel="noopener">руководство по ES2015</a> от Babel. Нет необходимости запоминать все новые возможности, но держите эту страничку под рукой в качестве справочника.</p>
+</li>
+</ul>
+<p>После того как вы уделили время этим ресурсам, мы советуем вам посмотреть на <a href="https://cli.vuejs.org/ru/" target="_blank" rel="noopener">Vue CLI 3</a>. Следуйте инструкциям, и очень скоро у вас будет рабочий проект с <code>.vue</code>-компонентами, ES2015, Webpack и горячей перезагрузкой модулей.</p>
+<h3 id="Для-продвинутых-пользователей"><a href="single-file-components_4.html#Для-продвинутых-пользователей" class="headerlink" title="Для продвинутых пользователей"></a>Для продвинутых пользователей</h3><p>CLI позаботится о большинстве настроек конфигурации сборки для вас, но при необходимости позволяет настроить любые детали через <a href="https://cli.vuejs.org/ru/config/" target="_blank" rel="noopener">опции конфигурации</a>.</p>
+<p>Если вы предпочитаете создавать конфигурацию сборки с нуля, то необходимо вручную настроить webpack для работы с <a href="https://vue-loader.vuejs.org/ru/" target="_blank" rel="noopener">vue-loader</a>. Чтобы узнать больше о webpack, обратитесь к <a href="https://webpack.js.org/configuration/" target="_blank" rel="noopener">его официальной документации</a> и <a href="https://webpack.academy/p/the-core-concepts" target="_blank" rel="noopener">Webpack Academy</a>.</p>
+
+    
+    
+      <div class="guide-links">
+        
+        
+          <span>← <a href="filters_3.html">Фильтры</a></span>
+        
+        
+        
+          <span style="float: right;"><a href="unit-testing_3.html">Модульное тестирование</a> →</span>
+        
+      </div>
+    
+    <div class="footer">
+        <script src="../../js/" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+      Обнаружили ошибку или хотите добавить что-то своё в документацию?
+      <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/single-file-components.md" target="_blank">
+        Отредактируйте эту страницу на GitHub!
+      </a>
+    </div>
+</div>
+
+                
+            </div>
+            <script src="https://ru.vuejs.org/js/smooth-scroll.min.js"></script>
+        
+
+        <!-- main custom script for sidebars, version selects etc. -->
+        <script src="https://ru.vuejs.org/js/css.escape.js"></script>
+        <script src="https://ru.vuejs.org/js/common.js"></script>
+
+        <!-- search -->
+        <link href="" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://ru.vuejs.org/css/search.css">
+        <script src=""></script>
+        <script>
+        [
+          '#search-query-nav',
+          '#search-query-sidebar',
+          '#search-query-menu'
+        ].forEach(function (selector) {
+          if (!document.querySelector(selector)) return
+          // search index defaults to v2
+          var match = window.location.pathname.match(/^\/(v\d+)/)
+          var version = match ? match[1] : 'v2'
+          docsearch({
+            appId: 'BH4D9OD16A',
+            apiKey: 'c6f9366f6f7fe057ee3e01747b603d9f',
+            indexName: 'vuejs_ru',
+            inputSelector: selector,
+            algoliaOptions: { facetFilters: ["version:" + version] },
+            autocompleteOptions: { hint: false, appendTo: 'body'}
+          })
+        })
+        </script>
+
+        <!-- fastclick -->
+        <script src=""></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          FastClick.attach(document.body)
+        }, false)
+        </script>
+    </body>
+</html>

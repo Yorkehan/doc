@@ -1,0 +1,1317 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <title>プロパティ — Vue.js</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="alternate" hreflang="x-default" href="components-props_2.html">
+    <link rel="alternate" hreflang="zh" href="components-props.html">
+    <link rel="alternate" hreflang="ja" href="components-props_3.html">
+    <link rel="alternate" hreflang="ru" href="components-props_4.html">
+    <link rel="alternate" hreflang="ko" href="https://kr.vuejs.org/v2/guide/components-props.html">
+    <link rel="alternate" hreflang="pt-BR" href="components-props_6.html">
+    <link rel="alternate" hreflang="fr" href="components-props_5.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="プロパティ — Vue.js">
+    <meta property="og:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta property="og:image" content="https://jp.vuejs.org//images/logo.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="プロパティ — Vue.js">
+    <meta name="twitter:description" content="Vue.js - The Progressive JavaScript Framework">
+    <meta name="twitter:image" content="https://jp.vuejs.org/images/logo.png">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://jp.vuejs.org/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://jp.vuejs.org/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://jp.vuejs.org/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://jp.vuejs.org/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://jp.vuejs.org/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://jp.vuejs.org/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://jp.vuejs.org/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://jp.vuejs.org/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://jp.vuejs.org/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://jp.vuejs.org/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://jp.vuejs.org/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://jp.vuejs.org/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://jp.vuejs.org/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <link rel="icon" href="https://jp.vuejs.org/images/logo.png" type="image/png">
+
+    <meta name="msapplication-TileColor" content="#4fc08d">
+    <meta name="theme-color" content="#4fc08d">
+
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <link rel="manifest" href="https://jp.vuejs.org/manifest.json">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600%7CRoboto%20Mono" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:500&amp;text=Vue.js" rel="stylesheet" type="text/css">
+
+    <link href="" rel="stylesheet" type="text/css">
+
+    <!-- main page styles -->
+    <link rel="stylesheet" href="https://jp.vuejs.org/css/page.css">
+
+    <!-- this needs to be loaded before guide's inline scripts -->
+    <script src="https://jp.vuejs.org/js/vue.js"></script>
+    <script>
+      Vue.config.productionTip = false
+      window.PAGE_TYPE = "guide"
+    </script>
+
+    <!-- ga -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','../../js/analytics.js','ga');
+
+      ga('create', 'UA-46852172-1', 'jp.vuejs.org');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- vimeo analytics -->
+    <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
+  </head>
+  <body class="docs">
+    <div id="mobile-bar">
+      <a class="menu-button"></a>
+      <a class="logo" href="https://jp.vuejs.org/"></a>
+    </div>
+    <div id="header">
+  <a id="logo" href="https://jp.vuejs.org/">
+    <img src="https://jp.vuejs.org/images/logo.png" alt="vue logo">
+    <span>Vue.js</span>
+  </a>
+  <ul id="nav">
+    <li>
+  <form id="search-form">
+    <input type="text" id="search-query-nav" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">学ぶ</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://jp.vuejs.org/v2/guide/" class="nav-link current">ガイド</a></li>
+      <li><a href="https://jp.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="https://jp.vuejs.org/v2/style-guide/" class="nav-link">スタイルガイド</a></li>
+      <li><a href="https://jp.vuejs.org/v2/examples/" class="nav-link">例</a></li>
+      <li><a href="https://jp.vuejs.org/v2/cookbook/" class="nav-link">クックブック</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">エコシステム</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>ヘルプ</h4></li>
+    <li><ul>
+      <li><a href="../../forum_vuejs_default.html" class="nav-link" target="_blank">フォーラム</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">チャット(公式)</a></li>
+      <li><a href="https://vuejs-jp-slackin.herokuapp.com" class="nav-link" target="_blank">チャット(日本向け)</a></li>
+      <li><a href="../../meetups/meetups.html" class="nav-link" target="_blank">ミートアップ</a></li>
+    </ul></li>
+    <li><h4>開発ツール</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="../../cli_vuejs_default.html" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>コアライブラリ</h4></li>
+    <li><ul>
+      <li><a href="../../router_vuejs_default.html" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>ニュース</h4></li>
+    <li><ul>
+      <li><a href="../../news_vuejs_default.html" class="nav-link" target="_blank">ウィークリーニュース</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">ロードマップ</a></li>
+      <li><a href="../../events_vuejs_default.html" class="nav-link" target="_blank">イベント</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">ブログ(英語)</a></li>
+      <li><a href="https://jp.vuejs.org/blog/" class="nav-link" target="_blank">ブログ(日本語訳)</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">ジョブ(海外)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">DEV コミュニティ</a></li>
+    </ul></li>
+    <li><h4>リソースリスト</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">公式レポジトリ</a></li>
+      <li><a href="../../curated_vuejs_default.html" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team_3.html" class="nav-link team">チーム</a>
+</li>
+<li>
+  <a href="https://jp.vuejs.org/contribution/" class="nav-link">貢献</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="https://jp.vuejs.org/support-vuejs/" class="nav-link">Vue を支援する</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://jp.vuejs.org/support-vuejs/#1回きりの支援" class="nav-link">1回きりの支援</a></li>
+      <li><a href="https://jp.vuejs.org/support-vuejs/#継続的な支援" class="nav-link">継続的な支援</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Tシャツ ショップ</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">言語</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="components-props_2.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="components-props.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="components-props_4.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-props.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="components-props_6.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="components-props_5.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="components-props_7.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+  </ul>
+</div>
+
+    
+      <div id="main" class="fix-sidebar">
+        
+          
+  <div class="sidebar">
+  <div class="sidebar-inner">
+    <ul class="main-menu">
+      <li>
+  <form id="search-form">
+    <input type="text" id="search-query-sidebar" class="search-query st-default-search-input">
+  </form>
+</li>
+<li class="nav-dropdown-container learn">
+  <a class="nav-link current">学ぶ</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://jp.vuejs.org/v2/guide/" class="nav-link current">ガイド</a></li>
+      <li><a href="https://jp.vuejs.org/v2/api/" class="nav-link">API</a></li>
+      <li><a href="https://jp.vuejs.org/v2/style-guide/" class="nav-link">スタイルガイド</a></li>
+      <li><a href="https://jp.vuejs.org/v2/examples/" class="nav-link">例</a></li>
+      <li><a href="https://jp.vuejs.org/v2/cookbook/" class="nav-link">クックブック</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container ecosystem">
+  <a class="nav-link">エコシステム</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><h4>ヘルプ</h4></li>
+    <li><ul>
+      <li><a href="../../forum_vuejs_default.html" class="nav-link" target="_blank">フォーラム</a></li>
+      <li><a href="https://chat.vuejs.org/" class="nav-link" target="_blank">チャット(公式)</a></li>
+      <li><a href="https://vuejs-jp-slackin.herokuapp.com" class="nav-link" target="_blank">チャット(日本向け)</a></li>
+      <li><a href="../../meetups/meetups.html" class="nav-link" target="_blank">ミートアップ</a></li>
+    </ul></li>
+    <li><h4>開発ツール</h4></li>
+    <li>
+      <ul>
+        <li><a href="https://github.com/vuejs/vue-devtools" class="nav-link" target="_blank">Devtools</a></li>
+        <li><a href="../../cli_vuejs_default.html" class="nav-link" target="_blank">Vue CLI</a></li>
+        <li><a href="https://vue-loader.vuejs.org" class="nav-link" target="_blank">Vue Loader</a></li>
+      </ul>
+    </li>
+    <li><h4>コアライブラリ</h4></li>
+    <li><ul>
+      <li><a href="../../router_vuejs_default.html" class="nav-link" target="_blank">Vue Router</a></li>
+      <li><a href="https://vuex.vuejs.org/" class="nav-link" target="_blank">Vuex</a></li>
+      <li><a href="https://ssr.vuejs.org/" class="nav-link" target="_blank">Vue Server Renderer</a></li>
+    </ul></li>
+    <li><h4>ニュース</h4></li>
+    <li><ul>
+      <li><a href="../../news_vuejs_default.html" class="nav-link" target="_blank">ウィークリーニュース</a></li>
+      <li><a href="https://github.com/vuejs/vue/projects/6" class="nav-link" target="_blank">ロードマップ</a></li>
+      <li><a href="../../events_vuejs_default.html" class="nav-link" target="_blank">イベント</a></li>
+      <li><a href="https://twitter.com/vuejs" class="nav-link" target="_blank">Twitter</a></li>
+      <li><a href="https://medium.com/the-vue-point" class="nav-link" target="_blank">ブログ(英語)</a></li>
+      <li><a href="https://jp.vuejs.org/blog/" class="nav-link" target="_blank">ブログ(日本語訳)</a></li>
+      <li><a href="https://vuejobs.com/?ref=vuejs" class="nav-link" target="_blank">ジョブ(海外)</a></li>
+      <li><a href="https://dev.to/t/vue" class="nav-link" target="_blank">DEV コミュニティ</a></li>
+    </ul></li>
+    <li><h4>リソースリスト</h4></li>
+    <li><ul>
+      <li><a href="https://github.com/vuejs" class="nav-link" target="_blank">公式レポジトリ</a></li>
+      <li><a href="../../curated_vuejs_default.html" class="nav-link" target="_blank">Vue Curated</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" class="nav-link" target="_blank">Awesome Vue</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li>
+  <a href="team_3.html" class="nav-link team">チーム</a>
+</li>
+<li>
+  <a href="https://jp.vuejs.org/contribution/" class="nav-link">貢献</a>
+</li>
+<li class="nav-dropdown-container support-vue">
+  <a href="https://jp.vuejs.org/support-vuejs/" class="nav-link">Vue を支援する</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><ul>
+      <li><a href="https://jp.vuejs.org/support-vuejs/#1回きりの支援" class="nav-link">1回きりの支援</a></li>
+      <li><a href="https://jp.vuejs.org/support-vuejs/#継続的な支援" class="nav-link">継続的な支援</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Tシャツ ショップ</a></li>
+    </ul></li>
+  </ul>
+</li>
+
+<li class="nav-dropdown-container language">
+  <a class="nav-link">言語</a><span class="arrow"></span>
+  <ul class="nav-dropdown">
+    <li><a href="components-props_2.html" class="nav-link" target="_blank">English</a></li>
+    <li><a href="components-props.html" class="nav-link" target="_blank">中文</a></li>
+    <li><a href="components-props_4.html" class="nav-link" target="_blank">Русский</a></li>
+    <li><a href="https://kr.vuejs.org/v2/guide/components-props.html" class="nav-link" target="_blank">한국어</a></li>
+    <li><a href="components-props_6.html" class="nav-link" target="_blank">Português</a></li>
+    <li><a href="components-props_5.html" class="nav-link" target="_blank">Français</a></li>
+    <li><a href="components-props_7.html" class="nav-link" target="_blank">Tiếng Việt</a></li>
+  </ul>
+</li>
+
+
+    </ul>
+    <div class="list">
+      <div id="sidebar-sponsors-special">
+  <div class="main-sponsor">
+    <span>スペシャルスポンサー</span>
+    <div>
+    <a href="https://stdlib.com/" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/stdlib.png" alt="">
+    </a>
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-left">
+  <div class="main-sponsor">
+    <span>プラチナスポンサー</span>
+    <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/modus.png" alt="Modus">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="https://jp.vuejs.org/support-vuejs">
+    スポンサーになる
+  </a>
+</div>
+
+
+      
+        <h2>
+          
+          ガイド
+          
+            <select class="version-select">
+              <option value="SELF" selected>2.x</option>
+              <option value="v1">1.0</option>
+              <option value="012">0.12</option>
+            </select>
+          
+        </h2>
+        <ul class="menu-root">
+  
+    
+    
+      
+        <li><h3>基本的な使い方</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="installation_3.html" class="sidebar-link">インストール</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="index_3.html" class="sidebar-link">はじめに</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="instance_3.html" class="sidebar-link">Vue インスタンス</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="syntax_3.html" class="sidebar-link">テンプレート構文</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="computed_3.html" class="sidebar-link">算出プロパティとウォッチャ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="class-and-style_2.html" class="sidebar-link">クラスとスタイルのバインディング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="conditional_3.html" class="sidebar-link">条件付きレンダリング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="list_3.html" class="sidebar-link">リストレンダリング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="events_3.html" class="sidebar-link">イベントハンドリング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="forms_3.html" class="sidebar-link">フォーム入力バインディング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components_4.html" class="sidebar-link">コンポーネントの基本</a>
+    </li>
+  
+    
+    
+      
+      
+        <li><h3>コンポーネントの詳細</h3></li>
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-registration_2.html" class="sidebar-link">コンポーネントの登録</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-props_3.html" class="sidebar-link current">プロパティ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-custom-events_2.html" class="sidebar-link">カスタムイベント</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-slots_3.html" class="sidebar-link">スロット</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-dynamic-async_6.html" class="sidebar-link">動的 & 非同期コンポーネント</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="components-edge-cases_3.html" class="sidebar-link">特別な問題に対処する</a>
+    </li>
+  
+    
+    
+      
+      
+      
+        <li><h3>トランジションとアニメーション</h3></li>
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="transitions_6.html" class="sidebar-link">Enter/Leave とトランジション一覧</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="transitioning-state_4.html" class="sidebar-link">状態のトランジション</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+        <li><h3>再利用と構成</h3></li>
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="mixins_5.html" class="sidebar-link">ミックスイン</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="custom-directive_4.html" class="sidebar-link">カスタムディレクティブ</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="render-function_2.html" class="sidebar-link">描画関数とJSX</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="plugins_5.html" class="sidebar-link">プラグイン</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="filters_2.html" class="sidebar-link">フィルター</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+        <li><h3>ツール</h3></li>
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="single-file-components_3.html" class="sidebar-link">単一ファイルコンポーネント</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="unit-testing_8.html" class="sidebar-link">単体テスト</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="typescript_8.html" class="sidebar-link">TypeScript のサポート</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="deployment_3.html" class="sidebar-link">プロダクション環境への配信</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+        <li><h3>スケールアップ</h3></li>
+      
+      
+      
+      
+    
+    <li>
+      <a href="routing_2.html" class="sidebar-link">ルーティング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="state-management_2.html" class="sidebar-link">状態管理</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="ssr_5.html" class="sidebar-link">サーバサイドレンダリング</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>内部</h3></li>
+      
+      
+      
+    
+    <li>
+      <a href="reactivity_8.html" class="sidebar-link">リアクティブの探求</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>移行</h3></li>
+      
+      
+    
+    <li>
+      <a href="migration_2.html" class="sidebar-link">Vue 1.x からの移行</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="migration-vue-router_3.html" class="sidebar-link">Vue Router 0.7.x からの移行</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="migration-vuex_5.html" class="sidebar-link">Vuex 0.6.x から 1.0 への移行</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <li><h3>その他</h3></li>
+      
+    
+    <li>
+      <a href="comparison_2.html" class="sidebar-link">他のフレームワークとの比較</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="join_3.html" class="sidebar-link">Vue.js コミュニティへ参加しましょう!</a>
+    </li>
+  
+    
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    
+    <li>
+      <a href="team_3.html" class="sidebar-link">チームに会おう</a>
+    </li>
+  
+</ul>
+
+      
+    </div>
+  </div>
+</div>
+
+<div id="sidebar-sponsors-platinum-right">
+  <div class="main-sponsor">
+    <span>プラチナスポンサー</span>
+    <div>
+    <a href="https://moduscreate.com/?utm_source=Vue&utm_medium=Partnership&utm_campaign=VueShip" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/modus.png" alt="Modus">
+    </a>
+    <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/bit.png" alt="Bit">
+    </a>
+    <a href="http://tooltwist.com/" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/tooltwist.png" alt="Tooltwist">
+    </a>
+    <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/vueschool.png" alt="VueSchool">
+    </a>
+    <a href="https://vehikl.com/" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/vehikl.png" alt="Vehikl">
+    </a>
+    <a href="https://www.nativescript.org/vue?utm_source=vue-js-org&utm_medium=website&utm_campaign=nativescript-awareness" target="_blank" class="logo">
+      <img src="https://jp.vuejs.org/images/nativescript.png" alt="NativeScript">
+    </a>
+    </div>
+  </div>
+  <a class="become-backer" href="https://jp.vuejs.org/support-vuejs">
+    スポンサーになる
+  </a>
+</div>
+
+
+
+<div class="content guide with-sidebar components-props-guide">
+  
+    
+      <div id="ad">
+  <script async type="text/javascript" src="https://cdn.carbonads.com/carbon.js?serve=CKYIK2QU&amp;placement=vuejsorg" id="_carbonads_js">
+  </script>
+</div>
+
+    
+  
+  
+    <h1>プロパティ</h1>
+  
+  <p class="updated">最終更新日: 2019年2月24日</p>
+  
+  
+    <blockquote>
+<p>このページは、<a href="components_4.html">コンポーネントの基本</a>を読んでいることを前提としています。はじめてコンポーネントについて読む場合は、まずはそちらをお読みください。</p>
+</blockquote>
+<h2 id="プロパティの形式-キャメルケース-vs-ケバブケース"><a href="components-props_3.html#プロパティの形式-キャメルケース-vs-ケバブケース" class="headerlink" title="プロパティの形式 (キャメルケース vs ケバブケース)"></a>プロパティの形式 (キャメルケース vs ケバブケース)</h2><p>HTML の属性名は大文字小文字を区別せず、ブラウザは全ての大文字を小文字として解釈します。つまりは、 DOM(HTML) のテンプレート内においては、キャメルケースのプロパティはケバブケース(ハイフンで区切ったもの)を使用する必要があります。</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-comment">// JavaScript 内ではキャメルケース</span>
+  props: [<span class="hljs-string">'postTitle'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;h3&gt;&#123;&#123; postTitle &#125;&#125;&lt;/h3&gt;'</span>
+&#125;)</code></pre>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- HTML 内ではケバブケース --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">post-title</span>=<span class="hljs-string">"hello!"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>文字列テンプレートを利用している場合も、この制限は適用されません。</p>
+<h2 id="プロパティの型"><a href="components-props_3.html#プロパティの型" class="headerlink" title="プロパティの型"></a>プロパティの型</h2><p>ここまででは、プロパティを、プロパティ名の文字列として列挙してきました。</p>
+<pre><code class="hljs js">props: [<span class="hljs-string">'title'</span>, <span class="hljs-string">'likes'</span>, <span class="hljs-string">'isPublished'</span>, <span class="hljs-string">'commentIds'</span>, <span class="hljs-string">'author'</span>]</code></pre>
+<p>しかしながら、通常は全てのプロパティの属性を、特定の型の値にしたいと考えることでしょう。そのような場合、プロパティーのキーと値に、それぞれのプロパティ名と型を設定したオブジェクトの配列として、プロパティを列挙することができます:</p>
+<pre><code class="hljs js">props: &#123;
+  <span class="hljs-attr">title</span>: <span class="hljs-built_in">String</span>,
+  <span class="hljs-attr">likes</span>: <span class="hljs-built_in">Number</span>,
+  <span class="hljs-attr">isPublished</span>: <span class="hljs-built_in">Boolean</span>,
+  <span class="hljs-attr">commentIds</span>: <span class="hljs-built_in">Array</span>,
+  <span class="hljs-attr">author</span>: <span class="hljs-built_in">Object</span>,
+  <span class="hljs-attr">callback</span>: <span class="hljs-built_in">Function</span>,
+  <span class="hljs-attr">contactsPromise</span>: <span class="hljs-built_in">Promise</span> <span class="hljs-comment">// or any other constructor</span>
+&#125;</code></pre>
+<p>これは、コンポーネントへのドキュメンテーションだけでなく、間違った型を渡した場合に、ブラウザの JavaScript コンソールにて警告をします。詳しくはこのページの下にある<a href="components-props_3.html#プロパティのバリデーション">type checks and other prop validations</a> にて説明します。</p>
+<h2 id="静的あるいは動的なプロパティの受け渡し"><a href="components-props_3.html#静的あるいは動的なプロパティの受け渡し" class="headerlink" title="静的あるいは動的なプロパティの受け渡し"></a>静的あるいは動的なプロパティの受け渡し</h2><p>これまでは、このような形でプロパティが静的な値を渡しているところも見てきましたが:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"My journey with Vue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>次のような <code>v-bind</code> で動的に割り当てられたプロパティも見てきました:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 変数の値を動的に割り当てます --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 複数の変数を合成した値を動的に割り当てます --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title + ' by ' + post.author.name"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>上の 2 つの例では、文字列の値を渡していますが、プロパティには <strong>任意の</strong> 型の値を渡すことが可能です。</p>
+<h3 id="数値の受け渡し"><a href="components-props_3.html#数値の受け渡し" class="headerlink" title="数値の受け渡し"></a>数値の受け渡し</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- `42` が静的な値であっても、 Vue へとそれを伝えるには v-bind が必要です。 --&gt;</span>
+<span class="hljs-comment">&lt;!-- これは文字列ではなく、 JavaScript の式となります。                    --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:likes</span>=<span class="hljs-string">"42"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 変数の値を動的に割り当てています。 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:likes</span>=<span class="hljs-string">"post.likes"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="真偽値の受け渡し"><a href="components-props_3.html#真偽値の受け渡し" class="headerlink" title="真偽値の受け渡し"></a>真偽値の受け渡し</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 値のないプロパティは、 `true` を意味することとなります。 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">is-published</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- `false` が静的な値であっても、 Vue へとそれを伝えるには v-bind が必要です。 --&gt;</span>
+<span class="hljs-comment">&lt;!-- これもまた、文字列ではなく JavaScript の式となります。                        --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:is-published</span>=<span class="hljs-string">"false"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 変数の値を動的に割り当てています。 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:is-published</span>=<span class="hljs-string">"post.isPublished"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="配列の受け渡し"><a href="components-props_3.html#配列の受け渡し" class="headerlink" title="配列の受け渡し"></a>配列の受け渡し</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 配列が静的な値であっても、 Vue へとそれを伝えるには v-bind が必要です。 --&gt;</span>
+<span class="hljs-comment">&lt;!-- これもまた、文字列ではなく JavaScript の式となります。               --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:comment-ids</span>=<span class="hljs-string">"[234, 266, 273]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 変数の値を動的に割り当てています。 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:comment-ids</span>=<span class="hljs-string">"post.commentIds"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="オブジェクトの受け渡し"><a href="components-props_3.html#オブジェクトの受け渡し" class="headerlink" title="オブジェクトの受け渡し"></a>オブジェクトの受け渡し</h3><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- オブジェクトが静的な値であっても、 Vue へとそれを伝えるには v-bind が必要です。 --&gt;</span>
+<span class="hljs-comment">&lt;!-- これもまた、文字列ではなく JavaScript の式となります。                      --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:author</span>=<span class="hljs-string">"&#123;
+    name: 'Veronica',
+    company: 'Veridian Dynamics'
+  &#125;"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- 変数の値を動的に割り当てています。 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind:author</span>=<span class="hljs-string">"post.author"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h3 id="オブジェクトのプロパティの受け渡し"><a href="components-props_3.html#オブジェクトのプロパティの受け渡し" class="headerlink" title="オブジェクトのプロパティの受け渡し"></a>オブジェクトのプロパティの受け渡し</h3><p>オブジェクトの全てのプロパティをコンポーネントのプロパティ(props)として渡したい場合は、<code>v-bind</code> を引数無しで使うことができます(<code>v-bind:prop-name</code> の代わりに <code>v-bind</code> を使用). 例えば、 <code>post</code> オブジェクトの場合:</p>
+<pre><code class="hljs js">post: &#123;
+  <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'My Journey with Vue'</span>
+&#125;</code></pre>
+<p>次のテンプレートは:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span> <span class="hljs-attr">v-bind</span>=<span class="hljs-string">"post"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<p>以下と同等となります:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">blog-post</span>
+  <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"post.id"</span>
+  <span class="hljs-attr">v-bind:title</span>=<span class="hljs-string">"post.title"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blog-post</span>&gt;</span></code></pre>
+<h2 id="単方向のデータフロー"><a href="components-props_3.html#単方向のデータフロー" class="headerlink" title="単方向のデータフロー"></a>単方向のデータフロー</h2><p>全てのプロパティは、子プロパティと親プロパティの間に、 <strong>単方向のバインディング</strong> を形成します: 親のプロパティが更新されると、子へと流れ落ちていきますが、それ以外の方法でデータが流れることはありません。これによって、子コンポーネントが誤って親の状態を変更することがなく、これによって、アプリのデータフローを <strong>理解しづらい</strong> 可能性のある子コンポーネントによる誤った親の状態変更から、防ぎます。</p>
+<p>また、親コンポーネントが更新されるたびに、子コンポーネント内の全てのプロパティが最新の値へと更新されます。これは、子コンポーネント内において、プロパティを <strong>変化させない</strong> ことを意味しています。それを行った場合、 Vue は コンソールにて警告します。</p>
+<p>多くの場合、プロパティの値を変化させたい場合には、 2 つのケースがあります:</p>
+<ol>
+<li><p><strong>プロパティを初期値として受け渡し、子コンポーネントにてローカルのデータとして後で利用したいと考える場合</strong> この場合、プロパティの値をローカルの data の初期値として定義することを推奨します:</p>
+<pre><code class="hljs js">props: [<span class="hljs-string">'initialCounter'</span>],
+<span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+  <span class="hljs-keyword">return</span> &#123;
+    <span class="hljs-attr">counter</span>: <span class="hljs-keyword">this</span>.initialCounter
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p><strong>プロパティを未加工の値として渡す場合</strong> この場合、プロパティの値を使用した算出プロパティを別途定義することを推奨します:</p>
+<pre><code class="hljs js">props: [<span class="hljs-string">'size'</span>],
+<span class="hljs-attr">computed</span>: &#123;
+  <span class="hljs-attr">normalizedSize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size.trim().toLowerCase()
+  &#125;
+&#125;</code></pre>
+</li>
+</ol>
+<p class="tip">JavaScript のオブジェクトと配列は、参照渡しされることに注意してください。参照として渡されるため、子コンポーネント内で配列やオブジェクトを変更すると、 <strong>親の状態へと影響します。</strong></p>
+
+<h2 id="プロパティのバリデーション"><a href="components-props_3.html#プロパティのバリデーション" class="headerlink" title="プロパティのバリデーション"></a>プロパティのバリデーション</h2><p>コンポーネントは、プロパティに対して既存の型などの要件を指定することができます。もし指定した要件が満たされない場合、 Vue はブラウザの JavaScript コンソールにて警告します。これは、他の人が利用することを意図したコンポーネントを開発する場合に、特に便利です。</p>
+<p>プロパティへのバリデーションは、文字列の配列の代わりに、 <code>props</code> の値へとバリデーションの条件をもったオブジェクトを渡すことで指定できます。 例えば以下のようなものです:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-comment">// 基本的な型の検査 (`null` と `undefined` は全てのバリデーションにパスします)</span>
+    propA: <span class="hljs-built_in">Number</span>,
+    <span class="hljs-comment">// 複数の型の許容</span>
+    propB: [<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Number</span>],
+    <span class="hljs-comment">// 文字列型を必須で要求する</span>
+    propC: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">String</span>,
+      <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>
+    &#125;,
+    <span class="hljs-comment">// デフォルト値つきの数値型</span>
+    propD: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Number</span>,
+      <span class="hljs-attr">default</span>: <span class="hljs-number">100</span>
+    &#125;,
+    <span class="hljs-comment">// デフォルト値つきのオブジェクト型</span>
+    propE: &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-built_in">Object</span>,
+      <span class="hljs-comment">// オブジェクトもしくは配列のデフォルト値は</span>
+      <span class="hljs-comment">// 必ずそれを生み出すための関数を返す必要があります。</span>
+      <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+        <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">message</span>: <span class="hljs-string">'hello'</span> &#125;
+      &#125;
+    &#125;,
+    <span class="hljs-comment">// カスタマイズしたバリデーション関数</span>
+    propF: &#123;
+      <span class="hljs-attr">validator</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+        <span class="hljs-comment">// プロパティの値は、必ずいずれかの文字列でなければならない</span>
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">'success'</span>, <span class="hljs-string">'warning'</span>, <span class="hljs-string">'danger'</span>].indexOf(value) !== <span class="hljs-number">-1</span>
+      &#125;
+    &#125;
+  &#125;
+&#125;)</code></pre>
+<p>プロパティのバリデーションが失敗した場合、 Vue はコンソールにて警告します (開発用ビルドを利用しているとき)。</p>
+<p class="tip">プロパティのバリデーションはコンポーネントのインスタンスが生成される <strong>前</strong> に行われるため、インスタンスのプロパティ (例えば <code>data</code>, <code>computed</code> など) を <code>dafault</code> および <code>validator</code> 関数の中で利用することはできません。</p>
+
+<h3 id="型の検査"><a href="components-props_3.html#型の検査" class="headerlink" title="型の検査"></a>型の検査</h3><p><code>type</code> は、次のネイティブコンストラクタのいずれかです:</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Array</li>
+<li>Object</li>
+<li>Date</li>
+<li>Function</li>
+<li>Symbol</li>
+</ul>
+<p>さらに、 <code>type</code> はカスタムコンストラクタ関数でもあり、 <code>instanceof</code> によるアサーションを行います。例えば、以下のコンストラクタ関数が存在すると仮定したとき:</p>
+<pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span> (<span class="hljs-params">firstName, lastName</span>) </span>&#123;
+  <span class="hljs-keyword">this</span>.firstName = firstName
+  <span class="hljs-keyword">this</span>.lastName = lastName
+&#125;</code></pre>
+<p>このように利用することができます:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'blog-post'</span>, &#123;
+  <span class="hljs-attr">props</span>: &#123;
+    <span class="hljs-attr">author</span>: Person
+  &#125;
+&#125;)</code></pre>
+<p><code>author</code> プロパティの値が、 <code>new Person</code> によって作成されたものと検証できました。</p>
+<h2 id="プロパティでない属性"><a href="components-props_3.html#プロパティでない属性" class="headerlink" title="プロパティでない属性"></a>プロパティでない属性</h2><p>プロパティでない属性は、属性としてコンポーネントに受け渡されますが、対応するプロパティは定義されていません。</p>
+<p>子コンポーネントへと情報を渡す場合には、明示的に定義されたプロパティが好まれますが、コンポーネントライブラリの作成者には、コンポーネントが使用されうるコンテキストを必ずしも把握できるわけではありません。そのため、コンポーネントは、そのルートに対して追加される任意の属性を受け入れます。</p>
+<p>例えば、サードパーティの <code>bootstrap-date-input</code> コンポーネントを用いて <code>data-date-picker</code> 属性を要求する Bootstrap プラグインを使っているとします。その場合、その属性をコンポーネントのインスタンスに追加できます:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-date-input</span> <span class="hljs-attr">data-date-picker</span>=<span class="hljs-string">"activated"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-date-input</span>&gt;</span></code></pre>
+<p>また、 <code>data-date-picker=&quot;activated&quot;</code> 属性は、自動的に <code>bootstrap-date-input</code> のルート属性へと追加されます。</p>
+<h3 id="既存の属性への置換とマージ"><a href="components-props_3.html#既存の属性への置換とマージ" class="headerlink" title="既存の属性への置換とマージ"></a>既存の属性への置換とマージ</h3><p>これが <code>bootstrap-date-input</code> 側のテンプレートとします:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"date"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>&gt;</span></code></pre>
+<p>この日付プラグインのテーマを指定するには、以下のような特定のクラスを追加する必要があります:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-date-input</span>
+  <span class="hljs-attr">data-date-picker</span>=<span class="hljs-string">"activated"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"date-picker-theme-dark"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-date-input</span>&gt;</span></code></pre>
+<p>こういった場合、異なる2つのクラスが定義されています:</p>
+<ul>
+<li><code>form-control</code> はコンポーネント自身のテンプレート内で定義されています</li>
+<li><code>date-picker-theme-dark</code> は、親コンポーネントによって受け渡されます</li>
+</ul>
+<p>ほとんどの属性においては、コンポーネント側の値が、コンポーネントに受け渡された値へと置換されます。たとえば、 <code>type=&quot;text&quot;</code> を渡すと、 <code>type=&quot;date&quot;</code> は置き換えられ、そして壊れてしまうでしょう！幸運なことに、 <code>class</code> および <code>style</code> 属性は少しスマートに作られていますので、両方の値がマージされ、最終的な値は <code>form-control date-picker-theme-dark</code> となります。</p>
+<h3 id="属性の継承の無効化"><a href="components-props_3.html#属性の継承の無効化" class="headerlink" title="属性の継承の無効化"></a>属性の継承の無効化</h3><p>コンポーネントのルート要素に対して、属性を継承させたく <strong>ない</strong> 場合は、コンポーネントのオプション内にて <code>inheritAttrs: false</code> を設定できます。例:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'my-component'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-comment">// ...</span>
+&#125;)</code></pre>
+<p>これは、 コンポーネントの <code>$attrs</code> インスタンスプロパティと組み合わせる時に特に便利です。 <code>$attrs</code> は、コンポーネントに渡される属性名およびその値が含まれています :</p>
+<pre><code class="hljs js">&#123;
+  <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">placeholder</span>: <span class="hljs-string">'Enter your username'</span>
+&#125;</code></pre>
+<p><code>inheritAttrs: false</code> と <code>$attrs</code> を併用すると、要素に送る属性を手動で決定することができます。これは、 <a href="https://jp.vuejs.org/v2/style-guide/#基底コンポーネントの名前-強く推奨">基底コンポーネント</a> の利用においてはしばしば望ましいことがあります:</p>
+<pre><code class="hljs js">Vue.component(<span class="hljs-string">'base-input'</span>, &#123;
+  <span class="hljs-attr">inheritAttrs</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">props</span>: [<span class="hljs-string">'label'</span>, <span class="hljs-string">'value'</span>],
+  <span class="hljs-attr">template</span>: <span class="hljs-string">`
+    &lt;label&gt;
+      &#123;&#123; label &#125;&#125;
+      &lt;input
+        v-bind="$attrs"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+      &gt;
+    &lt;/label&gt;
+  `</span>
+&#125;)</code></pre>
+<p class="tip"><code>inheritAttrs: false</code> オプションは、<code>style</code> および <code>class</code> 属性のバインディングには影響 <strong>しない</strong> ことに注意してください。</p>
+
+<p>このパターンを使用すると、ルート上にある要素を気にすることなく、生の HTML 要素のように基底コンポーネントを利用できます。</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">base-input</span>
+  <span class="hljs-attr">v-model</span>=<span class="hljs-string">"username"</span>
+  <span class="hljs-attr">required</span>
+  <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Enter your username"</span>
+&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">base-input</span>&gt;</span></code></pre>
+
+  
+  
+    <div class="guide-links">
+      
+      
+        <span>← <a href="components-registration_2.html">コンポーネントの登録</a></span>
+      
+      
+      
+        <span style="float: right;"><a href="components-custom-events_2.html">カスタムイベント</a> →</span>
+      
+    </div>
+  
+  <div class="footer">
+      <script src="../../js/" type="text/javascript"></script>
+<div class="bsa-cpc"></div>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+    _bsa.init('default', 'CKYD62QM', 'placement:vuejsorg', {
+      target: '.bsa-cpc',
+      align: 'horizontal',
+      disable_css: 'true'
+    });
+      }
+  })();
+</script>
+
+    間違いを見つけた、またはドキュメントに貢献したいですか？
+    <a href="https://github.com/vuejs/jp.vuejs.org/blob/lang-ja/src/v2/guide/components-props.md" target="_blank">GitHub 上でこのページを編集する</a> か、<a href="https://github.com/vuejs/jp.vuejs.org" target="_blank">GitHub からこのサイトを Fork してプルリクエストしましょう
+    </a>！
+  </div>
+</div>
+
+        
+      </div>
+      <script src="https://jp.vuejs.org/js/smooth-scroll.min.js"></script>
+    
+
+    <!-- main custom script for sidebars, version selects etc. -->
+    <script src="https://jp.vuejs.org/js/css.escape.js"></script>
+    <script src="https://jp.vuejs.org/js/common.js"></script>
+
+    <!-- search -->
+    <link href="" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://jp.vuejs.org/css/search.css">
+    <script src=""></script>
+    <script>
+    [
+      '#search-query-nav',
+      '#search-query-sidebar',
+      '#search-query-menu'
+    ].forEach(function (selector) {
+      if (!document.querySelector(selector)) return
+      // search index defaults to v2
+      var match = window.location.pathname.match(/^\/(v\d+)/)
+      var version = match ? match[1] : 'v2'
+      docsearch({
+      appId: 'BH4D9OD16A',
+      apiKey: '0a75952972806d9ad07e387d08e9cc4c',
+      indexName: 'vuejs_jp',
+      inputSelector: selector,
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
+      })
+    })
+    </script>
+
+    <!-- fastclick -->
+    <script src=""></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FastClick.attach(document.body)
+    }, false)
+    </script>
+  </body>
+</html>
